@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Table</title>
+    <script type="text/javascript">var currentId = 1;</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="Scripts/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="Scripts/Methods.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.jqueryui.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" type="text/css" href="StylesSheet.css">
+
+</head>
+<body>
+    <div>
+        <h2 class="title">Customer Table</h2>
+        <table id="customerTable" class="cell-border display"  width="100%">
+            <thead>
+                <tr class="tableHeader">
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Address</td>
+                    <td>City</td>
+                    <td>State</td>
+                    <td>Zip</td>
+                    <td><a href="CreateCustomer.html">Add New Customer</a></td>
+                </tr>
+            </thead>
+        </table>
+        <script>
+            $(document).ready(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/customers',
+                    mimeType: 'json',
+                    success: function (data) {
+                        $("#customerTable").append("<tbody>");
+                        $.each(data, function (i, data) {
+                            var body = "<tr id='" + data.CustomerId +"'>";
+                            body += "<td>" + data.CustomerId + "</td>";
+                            body += "<td>" + data.Name + "</td>";
+                            body += "<td>" + data.Address + "</td>";
+                            body += "<td>" + data.City + "</td>";
+                            body += "<td>" + data.State + "</td>";
+                            body += "<td>" + data.Zip + "</td>";
+                            body += "<td><a href='EditCustomer.html?id=" + data.CustomerId + "'><button class='editdelete'>Edit</button></a>  | <button class='editdelete' onclick='deleteCustomer(" + data.CustomerId + ")'>Delete</button></td>";
+                            body += "</tr>";
+                            $("#customerTable").append(body);
+                        });
+                        $("#customerTable").append("</tbody>");
+                        $("#customerTable").DataTable({
+                            "dom": 'frtip',
+                            "pageLength": 25,
+                            "columnDefs": [
+                                { "orderable": false, "targets": 6 }
+                            ]
+                        });
+
+
+                    },
+                    error: function () {
+                        alert('Fail!');
+                    }
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>  

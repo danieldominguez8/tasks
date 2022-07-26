@@ -1,0 +1,35 @@
+﻿body {
+    background-color: aliceblue;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+
+.title {
+    text-align: center;
+}
+
+.center {
+    padding-right: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+}
+
+.buttons {
+    margin-top: .5%;
+}
+
+.moveLeft {
+    text-align: center;
+    background-color: white;
+    border: solid;
+    border-color: black;
+    border-radius: 3px;
+    border-width: 1px;
+}
+
+#newCustomerState{
+    text-align: left;
+    margin-right:20%;
+}
