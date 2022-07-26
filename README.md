@@ -5,16 +5,17 @@ Visual Studio 2019
   
 # How To Run Solutions  
 ## TaskOne  
-`git clone https://github.com/danieldominguez8/tasks.git  `
-`start TaskOne/TaskOne.sln  `  
+`git clone https://github.com/danieldominguez8/tasks.git`  
+`cd tasks`  
+`start TaskOne/TaskOne.sln`    
 (Visual Studio) Run with IIS Express  
 Browser will open on localhost:44344 and table may take time to load on first run.  
 ## TaskTwo  
-`start TaskTwo/TaskTwo.sln   `
+`start TaskTwo/TaskTwo.sln`  
 (Visual Studio) Run with IIS Express.  Window will open on localhost:5001 with api json of customers to confirm connection.  
-`cd TaskTwo/tasktworeact  `
-`npm install   `
-`npm start   `
+`cd TaskTwo/tasktworeact`  
+`npm install`  
+`npm start`  
 Browser will open on localhost:3000  
   
 ## TaskOne features:  
